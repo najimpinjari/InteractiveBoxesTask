@@ -1,23 +1,48 @@
-﻿// Select all boxes
-const boxes = document.querySelectorAll('.box');
+﻿//// Select all boxes and log if any are found
+//const boxes = document.querySelectorAll('.box');
 
-boxes.forEach(box => {
-    const dot = box.querySelector('.dot');
-    const options = box.querySelector('.options');
+//if (boxes.length === 0) {
+//    console.warn('No boxes found in the DOM.');
+//} else {
+//    boxes.forEach(box => {
+//        const options = box.querySelectorAll('.options select');
 
-    box.addEventListener('mouseenter', () => {
-        // Change the dot color to dark when the box is selected
-        dot.style.backgroundColor = '#004d40';
+//        if (options.length === 0) {
+//            console.warn('No dropdowns found in this box:', box);
+//            return; // Skip further processing for this box
+//        }
 
-        // Display the options when hovering over the box
-        options.style.display = 'flex';
-    });
+//        // Show all dropdowns when the mouse enters the box
+//        box.addEventListener('mouseenter', () => {
+//            options.forEach(option => {
+//                if (option) {
+//                    option.style.display = 'block';
+//                }
+//            });
+//        });
 
-    box.addEventListener('mouseleave', () => {
-        // Revert the dot color when the mouse leaves the box
-        dot.style.backgroundColor = '#b0bec5';
+//        // Hide all dropdowns when the mouse leaves the box
+//        box.addEventListener('mouseleave', () => {
+//            options.forEach(option => {
+//                if (option) {
+//                    option.style.display = 'none';
+//                }
+//            });
+//        });
 
-        // Hide the options when the mouse leaves
-        options.style.display = 'none';
-    });
-});
+//        // Ensure dropdowns remain visible when the mouse is over them
+//        options.forEach(option => {
+//            option.addEventListener('mouseenter', () => {
+//                if (option) {
+//                    option.style.display = 'block';
+//                }
+//            });
+
+//            option.addEventListener('mouseleave', (event) => {
+//                if (option && !box.contains(event.relatedTarget)) {
+//                    option.style.display = 'none';
+//                }
+//            });
+//        });
+//    });
+//}

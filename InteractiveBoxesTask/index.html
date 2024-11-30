@@ -4,7 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Boxes</title>
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #004d40;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 40%;
+            height: 150%;
+            margin: auto;
+            background-color: #e9f3f2;
+            padding: 60px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            margin-bottom: 150px;
+            text-align: center;
+        }
+
+            .header h1 {
+                font-size: 48px;
+                color: #004d40;
+                font-weight: bold;
+                margin-bottom: 50px;
+            }
+
+        .box {
+            width: 95%;
+            background-color: #e0f7fa;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            font-size: 24px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+            .box:hover {
+                border: 2px solid #00796b;
+                box-shadow: 0 6px 12px #00796b;
+            }
+
+        .box-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+            .box-header .indicator {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: #b0bec5;
+                margin-right: 10px;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3s, box-shadow 0.3s;
+            }
+
+                .box-header .indicator.active {
+                    background-color: #004d40;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                }
+
+            .box-header p {
+                margin: 0;
+                font-size: 32px;
+                font-weight: bold;
+                color: #0b463c;
+            }
+
+        .discount {
+            color: #d32f2f;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+            .options label {
+                display: block;
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            .options select {
+                font-size: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                border: 2px solid #00796b;
+                background-color: #ffffff;
+                width: 100%;
+                color: #004d40;
+                display: none;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+                .options select.show {
+                    display: block;
+                    opacity: 1;
+                }
+
+                .options label:hover select,
+                .box:hover .options select,
+                .options select:hover {
+                    display: block;
+                    opacity: 1;
+                }
+
+                .options select:focus {
+                    border-color: #004d40;
+                    display: block;
+                }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+           
+        }
+
+            .footer p {
+                font-size: 24px;
+                font-weight: bold;
+                color: #004d40;
+            }
+
+            .footer .left-text {
+                flex: 1;
+                text-align: left;
+                text-decoration-color: red;
+            }
+
+            .footer .right-text {
+                flex: 1;
+                text-align: right;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font: bold;
+                max-block-size: fit-content;
+            }
+
+        .add-to-cart {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+            .add-to-cart:hover {
+                background-color: #004d40;
+            }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,10 +186,11 @@
         <!-- Product Boxes -->
         <div class="box" id="box1">
             <div class="box-header">
+                <span class="indicator"></span>
                 <p>
                     1 pair <br />
-                    <span style="color: black;">DKK 195.00</span>
-                    <span class="discount" style="margin-left: 700px;">50% off</span>
+                    <span style="color: black; font-size:76%;" >DKK 195.00</span>
+                    <span class="discount" style="margin-left: 600px;">50% off</span>
                 </p>
             </div>
             <div class="options">
@@ -58,16 +229,15 @@
                     </select>
                 </label>
             </div>
-
         </div>
-
 
         <div class="box" id="box2">
             <div class="box-header">
+                <span class="indicator"></span>
                 <p>
                     2 pair <br />
-                           <span style="color: black;">DKK 345.00</span>
-                           <span class="discount" style="margin-left: 400px;">40% off (Most popular deal)</span>
+                    <span style="color: black; font-size: 76%;">DKK 345.00</span>
+                    <span class="discount" style="margin-left: 300px;">40% off (Most popular deal)</span>
                 </p>
             </div>
             <div class="options">
@@ -110,10 +280,11 @@
 
         <div class="box" id="box3">
             <div class="box-header">
+                <span class="indicator"></span>
                 <p>
                     3 pair <br />
-                           <span style="color: black;">DKK 528.00</span>
-                    <span class="discount" style="margin-left: 700px;">60% off</span>
+                    <span style="color: black; font-size: 76%; ">DKK 528.00</span>
+                    <span class="discount" style="margin-left: 600px;">60% off</span>
                 </p>
             </div>
             <div class="options">
@@ -153,18 +324,53 @@
                 </label>
             </div>
         </div>
+
         <div class="footer">
             <p>Free 2 days shipping</p>
             <p class="price">DKK 380.00</p>
         </div>
 
-     
         <!-- Footer -->
-        <div class="footer " >
+        <div class="footer">
             <button class="add-to-cart">+ Add to Cart</button>
         </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            const indicator = box.querySelector('.indicator');
+            const options = box.querySelectorAll('select');
+
+            // Show indicator and options when hovering over the box
+            box.addEventListener('mouseenter', () => {
+                indicator.classList.add('active');
+                options.forEach(option => option.classList.add('show'));
+            });
+
+            // Hide indicator and options when mouse leaves the box, unless it's over the dropdown
+            box.addEventListener('mouseleave', () => {
+                if (![...options].some(option => option.matches(':hover'))) {
+                    indicator.classList.remove('active');
+                    options.forEach(option => {
+                        option.classList.remove('show');
+                    });
+                }
+            });
+
+            // Ensure options stay visible when mouse enters the dropdown
+            options.forEach(option => {
+                option.addEventListener('mouseenter', () => {
+                    option.classList.add('show');
+                });
+
+                option.addEventListener('mouseleave', () => {
+                    // Keep the dropdown visible if mouse enters another dropdown
+                    if (![...box.querySelectorAll('select')].some(select => select.matches(':hover'))) {
+                        option.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
